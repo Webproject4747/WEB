@@ -14,10 +14,11 @@
     <header class="header">
     <nav class= "flex items-center justify-between">
     <div class="left flex items-center">
-
-        <img src="images/vidya-vikas-logo.png"alt="logo"><a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</a><a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</a><a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="home.php">home</a>
+    <body background="user_images/b.jpg"
+	style="background-repeat:no-repeat;background-size:100%300%">
+        <img src="user_images/vidya-vikas-logo.png"alt="logo"><a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</a><a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</a><a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="home.php">home</a>
         &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="#">about</a>
-        &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="admin_dashboard.php">Admin</a>
+        &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="admin_login.php">Admin</a>
         &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="#">Contact</a>
         &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="#">Logout</a>
         
@@ -31,24 +32,53 @@
             <div class="col-md-2 col-sm-2 col-xs-8">
             <br><br><br><br><br>
             <center>
-            <form class="form-container">
+            <form action="" method="post" class="form-container">
                 <div class="form-group">
                     <label><h3><strong>Student login</strong></h3></label><br>
-                    <label for="inputEmail3" > &nbsp; &nbsp; &nbsp; Email : </label><input type="email" class="form-control" id="inputEmail3" placeholder="Enter email id">
-                 </div><br>
-  
-                <div class="form-group">
-                    <label for="inputPassword3">Password : </label> <input type="password" class="form-control" id="inputPassword3" placeholder="Enter password">
-                </div>
+                    <form action="" method="post">
+			Email ID: <input type="text" name="email" required><br><br>
+			Password: <input type="password" name="password" required><br><br>
+			<input type="submit" name="submit" value="LogIn">
+		</form><br>
  
   <br>
-  
 
-                <button type="submit" class="btn btn-success" >Login</button>
-            </form>
+  <?php
+			session_start();
+			if(isset($_POST['submit']))
+			{
+				$connection = mysqli_connect("localhost","root","");
+				$db = mysqli_select_db($connection,"sms");
+				$query = "select * from students where email = '$_POST[email]'";
+				$query_run = mysqli_query($connection,$query);
+				while ($row = mysqli_fetch_assoc($query_run)) 
+				{
+					if($row['email'] == $_POST['email'])
+					{
+						if($row['password'] == $_POST['password'])
+						{
+							$_SESSION['name'] =  $row['name'];
+							$_SESSION['email'] =  $row['email'];
+							header("Location:home.php");
+						}
+						else{
+							?>
+							<span>Wrong Password !!</span>
+							<?php
+						}
+					}
+					else
+					{
+						?>
+						<span>Wrong UserName !!</span>
+						<?php
+					}
+				}
+			}
+		?>     
     </div>
+    
     <div class="col-md-2 col-sm-2 col-xs-8"></div>
-
     </div>
 </center>
 </div>
