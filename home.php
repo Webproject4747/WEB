@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <title>Home Page</title>
+        <title>Student Home Page</title>
         <link rel="stylesheet" type="text/css" href="maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link href="css/global.css" type="text/css" rel="stylesheet">
 </head>
