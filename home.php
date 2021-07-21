@@ -34,31 +34,31 @@
                         <a href="index.php"><h3>View personal detail</h3></a>
 					</div>
 					<div class="card">
-						<img src="images/care-emoji-with-video-game.png" alt="">
+						<img src="images/acadamic.png" alt="">
 						<h3>View acadamic detail</h3>
 					</div>
 					<div class="card">
-						<img src="images/" alt="">
+						<img src="images/feed.jpg" alt="">
 						<h3>Feedback</h3>
 					</div>
 					<div class="card">
-						<img src="images/care-for-study.png" alt="">
+						<img src="images/notes.jpg" alt="">
 						<h3>Resources</h3>
 					</div>
                     <div class="card">
-						<img src="images/care-for-study.png" alt="">
+						<img src="images/attendance.jpg" alt="">
 						<h3>Attendance status</h3>
 					</div>
                     <div class="card">
-						<img src="images/care-for-study.png" alt="">
+						<img src="images/certificate.jpg" alt="">
 						<h3>Certificate</h3>
 					</div>
                     <div class="card">
-						<img src="images/care-for-study.png" alt="">
+						<img src="images/book.png" alt="">
 						<h3>Library</h3>
 					</div>
                     <div class="card">
-						<img src="images/care-for-study.png" alt="">
+						<img src="images/apli.png" alt="">
 						<h3>Exam application</h3>
 					</div>
 				</div>
